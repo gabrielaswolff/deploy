@@ -64,7 +64,7 @@ app.get('/usuarios/listar', (request, response) => {
         response
         .status(200)
         .json({
-            sucess: true,
+            success: true,
             message: 'sucesso',
             data: results
 
@@ -73,7 +73,7 @@ app.get('/usuarios/listar', (request, response) => {
         response
         .status(400)
         .json({
-            sucess: false,
+            success: false,
             message: 'sem sucesso',
             data: err
         })
@@ -129,7 +129,7 @@ app.delete('/usuario/deletar/:id', (request, response) => {
             response
             .status(200)
             .json({
-                sucess: true,
+                success: true,
                 message: 'sucesso pessoal :p',
                 data: 'results'  
             })
@@ -137,7 +137,7 @@ app.delete('/usuario/deletar/:id', (request, response) => {
             response
             .status(400)
             .json({
-                sucess: false,
+                success: false,
                 message: 'sem sucesso',
                 data: err
             })
