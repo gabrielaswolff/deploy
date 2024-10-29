@@ -45,3 +45,21 @@ document.getElementById('formulario').addEventListener('submit', async (event) =
         alert('erro');
     }
 });
+
+
+async function listarUsuarios() {
+    try {
+        const response = await fetch('http://localhost:3005/usuarios/listar');
+        const results = await response.json();
+
+        if (results.success) {
+            
+            console.log(results.data);
+        } else {
+            console.error(results.message);
+        }
+    } catch (error) {
+        console.error('Erro ao listar usuários:', error);
+    }
+}
+
