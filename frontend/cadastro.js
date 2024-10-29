@@ -5,7 +5,7 @@ document.getElementById('formulario').addEventListener('submit', async (event) =
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const cpf_number = document.getElementById('cpf_number').value;
-    const baseUrl = "http://localhost:3005";
+    const baseUrl = "https://deploy-28bq.vercel.app/";
 
     const data = { name, email, password, cpf_number };
     
