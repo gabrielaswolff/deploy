@@ -1,0 +1,15 @@
+# BANCO DE DADOS DEPLOY
+
+create database deploy;
+use deploy;
+
+create table users(
+id int not null auto_increment primary key,
+name varchar(255) not null,
+email varchar(255) not null unique, 
+password varchar(255) not null,
+cpf_number bigint,
+status enum('user', 'admin') default('user'),
+created_at timestamp default current_timestamp,
+perfil enum('user', 'admin') default('user')
+);
