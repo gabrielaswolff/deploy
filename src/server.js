@@ -89,10 +89,9 @@ app.put('/usuario/editar/:id', (request, response) => {
     const { name, cpf_number, email, password } = request.body;
     const id = request.params.id;
     
-    // Parâmetros para atualizar
+    
     let params = [name, cpf_number, email, password, id];
     
-    // Query para atualizar os campos
     let query = `
         UPDATE users
         SET name = ?, cpf_number = ?, email = ?, password = ?
