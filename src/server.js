@@ -131,7 +131,7 @@ app.delete('/usuario/deletar/:id', (request, response) => {
             .json({
                 success: true,
                 message: 'sucesso pessoal :p',
-                data: 'results'  
+                data: results  
             })
         } else {
             response
