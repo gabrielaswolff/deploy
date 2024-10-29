@@ -83,3 +83,66 @@ app.get('/usuarios/listar', (request, response) => {
 
 
 })
+
+
+app.put('/usuario/editar/:id', (request, response) => {
+    const { name, cpf_number, email, password } = request.body;
+    const id = request.params.id;
+    
+    // Parâmetros para atualizar
+    let params = [name, cpf_number, email, password, id];
+    
+    // Query para atualizar os campos
+    let query = `
+        UPDATE users
+        SET name = ?, cpf_number = ?, email = ?, password = ?
+        WHERE id = ?
+    `;
+    
+    connection.query(query, params, (err, results) => {
+        if (results) {
+            response.status(200).json({
+                success: true,
+                message: 'Edição realizada com sucesso',
+                data: results
+            });
+        } else {
+            response.status(400).json({
+                success: false,
+                message: 'Erro ao editar',
+                data: err
+            });
+        }
+    });
+});
+
+
+app.delete('/usuario/deletar/:id', (request, response) => {
+    let params = Array(
+        request.params.id
+    );
+
+    let query = 'delete from users where id = ?;'
+
+    connection.query(query, params, (err, results) => {
+        if(results) {
+            response
+            .status(200)
+            .json({
+                sucess: true,
+                message: 'sucesso pessoal :p',
+                data: 'results'  
+            })
+        } else {
+            response
+            .status(400)
+            .json({
+                sucess: false,
+                message: 'sem sucesso',
+                data: err
+            })
+        }
+    }
+    )
+
+})
